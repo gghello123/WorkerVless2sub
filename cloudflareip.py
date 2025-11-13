@@ -60,7 +60,7 @@ def fetch_and_parse_api():
             item["ip"] for item in data_list
         ]
 
-        parsed_data = " #vps\n".join(parsed_old_data)
+        parsed_data = ":8443#vps\n".join(parsed_old_data)
         print(parsed_data+" #vps")
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
 
@@ -73,7 +73,7 @@ def fetch_and_parse_api():
         output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILENAME)
         with open(output_path, "w", encoding="utf-8") as f:
             sys.stdout = f
-            print(parsed_data+" #vps")
+            print(parsed_data+":8443#vps")
             #json.dump(parsed_data, f, ensure_ascii=False, indent=2)
         sys.stdout = original_stdout
         print(f"数据解析完成，已保存到：{output_path}")
