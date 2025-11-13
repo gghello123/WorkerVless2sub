@@ -19,7 +19,7 @@ PARAMS = {"page": 1, "limit": 100}  # GET 参数
 
 # 解析结果存储路径（与工作流配置中的 git add 路径一致）
 OUTPUT_DIR = "data"
-OUTPUT_FILENAME = f"cfIpApi.json"  # 按日期命名
+OUTPUT_FILENAME = f"cfIpApi.txt"  # 按日期命名
 # --------------------------------------------------------------------------------
 
 def fetch_and_parse_api():
