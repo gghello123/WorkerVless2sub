@@ -9,4 +9,4 @@ on:
 
 jobs:
   call-external-workflow:
-    uses: gghello123/WorkerVless2sub/.github/workflows/get-ip-run-api.yml@developdevelop  # 引用目标工作流
+    uses: gghello123/WorkerVless2sub/.github/workflows/get-ip-run-api.yml@develop  # 引用目标工作流
