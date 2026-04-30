@@ -60,8 +60,9 @@ def fetch_and_parse_api():
             item["ip"] for item in data_list
         ]
 
-        parsed_data = ":8443#vps\n".join(parsed_old_data)
+        parsed_data = ":443#vps\n".join(parsed_old_data)
         print(parsed_data+" #vps")
+        print("saas.sin.fan#加入频道@kejiland00")
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
 
 
