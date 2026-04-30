@@ -75,6 +75,7 @@ def fetch_and_parse_api():
         with open(output_path, "w", encoding="utf-8") as f:
             sys.stdout = f
             print(parsed_data+":8443#vps")
+            print("saas.sin.fan#加入频道@kejiland00")
             #json.dump(parsed_data, f, ensure_ascii=False, indent=2)
         sys.stdout = original_stdout
         print(f"数据解析完成，已保存到：{output_path}")
