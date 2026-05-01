@@ -73,6 +73,8 @@ def fetch_and_parse_api():
         output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILENAME)
         with open(output_path, "w", encoding="utf-8") as f:
             sys.stdout = f
+            print("38.246.73.124:443#US")
+            print("8.220.134.136:443#SG")
             print("saas.sin.fan#gg")
             print(parsed_data+":8443#vps")
             print("saas.sin.fan#加入频道@kejiland00")
