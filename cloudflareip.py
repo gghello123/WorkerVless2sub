@@ -61,8 +61,7 @@ def fetch_and_parse_api():
         ]
 
         parsed_data = ":443#vps\n".join(parsed_old_data)
-        print(parsed_data+" #vps\n saas.sin.fan #加入频道@kejiland00")
-        print("saas.sin.fan #加入频道@kejiland00")
+        print(parsed_data+" #vps")
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
 
 
@@ -74,6 +73,7 @@ def fetch_and_parse_api():
         output_path = os.path.join(OUTPUT_DIR, OUTPUT_FILENAME)
         with open(output_path, "w", encoding="utf-8") as f:
             sys.stdout = f
+            print("saas.sin.fan#gg")
             print(parsed_data+":8443#vps")
             print("saas.sin.fan#加入频道@kejiland00")
             #json.dump(parsed_data, f, ensure_ascii=False, indent=2)
