@@ -64,7 +64,20 @@ def fetch_and_parse_api():
         print(parsed_data+" #vps")
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
 
-
+        #推送
+        url = "https://shell.649879112.xyz/0fa36c91-3151-4528-8a14-b1940bd436d2//api/preferred-ips"
+        ips = parsed_old_data
+        default_port = 8443
+        data = [
+            {"ip": ip, "port": default_port, "name": f"vps{i+1}"}
+            for i, ip in enumerate(ips)
+        ]
+        #response = requests.delete(url, json={"all": True}, headers={"Content-Type": "application/json"})
+        #print(f"状态码: {response.status_code}")
+        #print(f"响应内容: {response.text}")
+        response = requests.post(url, json=data, headers={"Content-Type": "application/json"})
+        print(f"状态码: {response.status_code}")
+        print(f"响应内容: {response.text}")
 
         # --------------------------------------------------------------------------------
 
