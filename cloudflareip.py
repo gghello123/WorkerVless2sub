@@ -65,7 +65,11 @@ def fetch_and_parse_api():
         parsed_old_data = parsed_old_data + htmllist
         
         parsed_data = ":443#vps\n".join(parsed_old_data)
-        print(parsed_data+" #vps")
+        
+        result= '\n'.join(fetch_and_process_proxies("8443"))
+        parsed_data = parsed_data + result
+        
+        print(parsed_data)
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
 
         #推送
@@ -135,6 +139,45 @@ def fetch_and_parse_html():
     # 按IP地址的数字顺序排序（非字符串顺序）
     sorted_ips = sorted(unique_ips, key=lambda ip: [int(part) for part in ip.split('.')])
     return sorted_ips
+#获取国家
+def fetch_and_process_proxies(port:str):
+    # 目标URL
+    url = "https://ipdb.api.030101.xyz/?type=bestproxy&country=true"
+
+    try:
+        # 发送GET请求获取内容
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()  # 检查请求是否成功
+
+        # 确保使用正确的编码（通常为UTF-8）
+        response.encoding = 'utf-8'
+        content = response.text
+
+        # 按行分割并处理
+        processed_lines = []
+        for line in content.strip().split('\n'):
+            line = line.strip()
+            if not line:  # 跳过空行
+                continue
+
+            # 在#号前添加:443
+            if '#' in line:
+                # 将IP和后面的部分分开
+                ip_part, country_part = line.split('#', 1)
+                new_line = f"{ip_part}:{port}#{country_part}"
+                processed_lines.append(new_line)
+            else:
+                # 如果没有#号（理论上不应该发生），保持原样
+                processed_lines.append(line)
+
+        return processed_lines
+
+    except requests.exceptions.RequestException as e:
+        print(f"网络请求错误: {e}")
+        return []
+    except Exception as e:
+        print(f"处理数据时出错: {e}")
+        return []
 
 if __name__ == "__main__":
     fetch_and_parse_api()
