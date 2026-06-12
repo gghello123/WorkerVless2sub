@@ -60,6 +60,9 @@ def fetch_and_parse_api():
             item["ip"] for item in data_list
         ]
 
+        htmllist =fetch_and_parse_html()
+        parsed_old_data = parsed_old_data + htmllist
+        
         parsed_data = ":443#vps\n".join(parsed_old_data)
         print(parsed_data+" #vps")
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
@@ -108,6 +111,29 @@ def fetch_and_parse_api():
         error_msg = f"JSON 解析失败：{str(e)}"
         print(error_msg)
         raise
+#获取html中ip
+def fetch_and_parse_html():
+    # 正则表达式用于匹配IP地址
+    ip_pattern = r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b'
+    # 使用集合存储IP地址实现自动去重
+    unique_ips = set()
+    # 发送HTTP请求获取网页内容
+    response = requests.get("https://ip.164746.xyz", timeout=5)
+
+    # 确保请求成功
+    if response.status_code == 200:
+        # 获取网页的文本内容
+        html_content = response.text
+
+        # 使用正则表达式查找IP地址
+        ip_matches = re.findall(ip_pattern, html_content, re.IGNORECASE)
+
+        # 将找到的IP添加到集合中（自动去重）
+        unique_ips.update(ip_matches)
+
+    # 按IP地址的数字顺序排序（非字符串顺序）
+    sorted_ips = sorted(unique_ips, key=lambda ip: [int(part) for part in ip.split('.')])
+    return sorted_ips
 
 if __name__ == "__main__":
     fetch_and_parse_api()
