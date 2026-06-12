@@ -65,6 +65,7 @@ def fetch_and_parse_api():
         parsed_old_data = parsed_old_data + htmllist
         
         parsed_data = ":443#vps\n".join(parsed_old_data)
+        parsed_data = parsed_data + ":8443#vps\n"
         
         result= '\n'.join(fetch_and_process_proxies("8443"))
         parsed_data = parsed_data + result
@@ -95,7 +96,7 @@ def fetch_and_parse_api():
         with open(output_path, "w", encoding="utf-8") as f:
             sys.stdout = f
             #print("saas.sin.fan#加入频道@kejiland00")
-            print(parsed_data+":8443#vps")
+            print(parsed_data)
             #print("saas.sin.fan#gg")
             #json.dump(parsed_data, f, ensure_ascii=False, indent=2)
         sys.stdout = original_stdout
