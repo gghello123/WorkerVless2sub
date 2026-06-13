@@ -84,7 +84,7 @@ def fetch_and_parse_api():
         #response = requests.delete(url, json={"all": True}, headers={"Content-Type": "application/json"})
         #print(f"状态码: {response.status_code}")
         #print(f"响应内容: {response.text}")
-        response = requests.post(url, json=data, headers={"Content-Type": "application/json"})
+        #response = requests.post(url, json=data, headers={"Content-Type": "application/json"})
         print(f"状态码: {response.status_code}")
         print(f"响应内容: {response.text}")
 
