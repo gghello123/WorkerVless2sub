@@ -69,6 +69,8 @@ def fetch_and_parse_api():
         
         result= '\n'.join(fetch_and_process_proxies("8443"))
         parsed_data = parsed_data + result
+
+        parsed_data = parsed_data  + extract_fast_ips_robust()
         
         print(parsed_data)
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
@@ -179,6 +181,56 @@ def fetch_and_process_proxies(port:str):
     except Exception as e:
         print(f"处理数据时出错: {e}")
         return []
+
+# 最可靠的方法：基于表格结构精确匹配
+def extract_fast_ips_robust():
+    """
+    最可靠的方法：精确匹配表格行结构
+    """
+    # 目标URL
+    url = "https://api.uouin.com/cloudflare.html"
+    """从URL读取HTML"""
+    try:
+        response = requests.get(url)
+        response.encoding = 'utf-8'
+        html_content = response.text
+
+        results = []
+
+        # 匹配完整的表格行（包含所有字段）
+        # 使用更精确的模式
+        pattern = r'<tr>\s*<th[^>]*>\s*\d+\s*</th>\s*<td[^>]*>\s*(电信|联通|移动|多线)\s*</td>\s*<td[^>]*>\s*(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\s*</td>\s*<td[^>]*>\s*([\d.]+%)\s*</td>\s*<td[^>]*>\s*([\d.]+ms)\s*</td>\s*<td[^>]*>\s*([\d.]+mb/s)\s*</td>'
+
+        matches = re.findall(pattern, html_content, re.IGNORECASE | re.DOTALL)
+
+        for match in matches:
+            line, ip, loss, delay, speed_text = match
+            speed = float(re.search(r'(\d+(?:\.\d+)?)', speed_text).group(1))
+
+            if speed > 5:
+                # 这是多行注释（不会被赋值）
+                """
+                results.append({
+                    'line': line,
+                    'ip': ip,
+                    'speed': speed,
+                    'speed_text': speed_text,
+                    'delay': delay,
+                    'loss': loss
+                })
+                """
+                # 拼接格式：ip:443#线路速度（速度保留一位小数）
+                #result = f"{ip}:443#{line}{int(speed)}"
+                result = f"{ip}:443#{line}{speed:.1f}"
+                results.append(result)
+    except requests.exceptions.RequestException as e:
+        print(f"网络请求错误: {e}")
+        return ''
+    except Exception as e:
+        print(f"处理数据时出错: {e}")
+        return ''
+    # 返回拼接后的字符串
+    return '\n'.join(results)
 
 if __name__ == "__main__":
     fetch_and_parse_api()
