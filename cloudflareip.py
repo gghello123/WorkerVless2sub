@@ -70,7 +70,7 @@ def fetch_and_parse_api():
         result= '\n'.join(fetch_and_process_proxies("8443"))
         parsed_data = parsed_data + result
 
-        parsed_data = parsed_data  + extract_fast_ips_robust()
+        parsed_data = parsed_data  +'\n'+ extract_fast_ips_robust()
         
         print(parsed_data)
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
