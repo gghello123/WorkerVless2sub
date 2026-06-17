@@ -3,6 +3,7 @@ import json
 import os
 import sys
 import re
+import ipaddress
 from datetime import datetime
 
 # -------------------------- 配置参数（根据实际接口修改）--------------------------
@@ -173,7 +174,7 @@ def fetch_and_process_proxies(port:str):
             if '#' in line:
                 # 将IP和后面的部分分开
                 ip_part, country_part = line.split('#', 1)
-                new_line = f"{ip_part}:{port}#{country_part}"
+                new_line = f"{ip_part}:{port}#ipdb_{country_part}"
                 processed_lines.append(new_line)
             else:
                 # 如果没有#号（理论上不应该发生），保持原样
