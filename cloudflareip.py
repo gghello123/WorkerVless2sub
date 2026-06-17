@@ -72,6 +72,11 @@ def fetch_and_parse_api():
         parsed_data = parsed_data + "\n"
 
         parsed_data = parsed_data + extract_fast_ips_robust()
+
+        parsed_data = parsed_data + "\n"
+        parsed_data = parsed_data  + parse_ips_from_json()
+        parsed_data = parsed_data + "\n"
+        parsed_data = parsed_data  + parse_ips_from_json("https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/Cf-ipv6.json")
         
         print(parsed_data)
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
@@ -232,6 +237,87 @@ def extract_fast_ips_robust():
         return ''
     # 返回拼接后的字符串
     return '\n'.join(results)
+
+def parse_ips_from_json(url = "https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/Cf-ipv4.json"):
+    """
+    从 JSON 数据中提取 ip, line, speed，并格式化为指定字符串。
+
+    参数:
+        json_data: 包含 IP 信息的 JSON 列表或 JSON 字符串
+
+    返回:
+        格式化后的字符串，每行格式为 "ip:443#line速度（整数）"
+    """
+    try:
+        # 发送HTTP请求获取网页内容
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers, timeout=5)
+        response.encoding = 'utf-8'
+        json_data = response.text
+        # 如果输入是字符串，先解析为 Python 列表
+        if isinstance(json_data, str):
+            try:
+                data_list = json.loads(json_data)
+            except json.JSONDecodeError:
+                return "错误：无效的 JSON 格式"
+        else:
+            data_list = json_data
+
+        # 确保是列表
+        if not isinstance(data_list, list):
+            return "错误：JSON 数据不是列表格式"
+
+        result_lines = []
+        for item in data_list:
+            # 提取所需字段
+            ip = item.get('ip')
+            line = item.get('line')
+            speed = item.get('speed')
+
+            # 检查必要字段是否存在
+            if ip is None or line is None or speed is None:
+                continue  # 跳过缺失字段的条目
+            # 判断 IP 类型并添加标识
+            try:
+                ip_obj = ipaddress.ip_address(ip)
+                if ip_obj.version == 4:
+                    ip_type = "IPv4"
+                elif ip_obj.version == 6:
+                    ip_type = "IPv6"
+                else:
+                    ip_type = "Unknown"
+            except ValueError:
+                ip_type = "Invalid"  # 如果不是有效的 IP 地址
+
+            # 格式化：ip:443#line速度（整数）
+            line_mapping = {
+                'CM': '移动',
+                'CT': '电信',
+                'CU': '联通'
+            }
+            # 将线路代码转换为中文（可选），如果不需要映射可直接使用 line
+            line_display = line_mapping.get(line, line)
+
+            # 格式化：ip:80#line_speed（速度取整数）
+            # 如果是 IPv6，用 [ip] 包裹
+            if ip_type == "IPv6":
+                formatted = f"[{ip}]:80#{line_display}_{int(speed)}"
+            else:
+                formatted = f"{ip}:443#{line_display}_{int(speed)}"
+
+            result_lines.append(formatted)
+
+    except requests.exceptions.RequestException as e:
+        print(f"网络请求错误: {e}")
+        return ''
+    except Exception as e:
+        print(f"处理数据时出错: {e}")
+        return ''
+
+    # 用换行符连接所有结果
+    return '\n'.join(result_lines)
 
 if __name__ == "__main__":
     fetch_and_parse_api()
