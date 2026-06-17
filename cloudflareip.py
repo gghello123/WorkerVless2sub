@@ -353,7 +353,7 @@ def parse_domains_from_json(url = "https://raw.githubusercontent.com/beiye935/Yo
                 processed_lines.append(new_line)
             else:
                 # 如果没有#号（理论上不应该发生），保持原样
-                new_line = f"{ip_part}:80#"
+                new_line = f"{line}:80#"
                 processed_lines.append(new_line)
 
         #return processed_lines
