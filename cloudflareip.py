@@ -78,6 +78,9 @@ def fetch_and_parse_api():
         parsed_data = parsed_data  + parse_ips_from_json()
         parsed_data = parsed_data + "\n"
         parsed_data = parsed_data  + parse_ips_from_json("https://raw.githubusercontent.com/NiREvil/vless/refs/heads/main/sub/Cf-ipv6.json")
+
+        parsed_data = parsed_data + "\n"
+        parsed_data = parsed_data  + parse_domains_from_json()
         
         print(parsed_data)
         #parsed_data = parsed_old_data.replace("[", "").replace("]", "").replace('",',"")
@@ -319,6 +322,49 @@ def parse_ips_from_json(url = "https://raw.githubusercontent.com/NiREvil/vless/r
 
     # 用换行符连接所有结果
     return '\n'.join(result_lines)
+
+def parse_domains_from_json(url = "https://raw.githubusercontent.com/beiye935/YouXuanIPAndYuming/refs/heads/main/Cloudflare%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D.txt"):
+    try:
+        # 发送HTTP请求获取网页内容
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers, timeout=10)
+        response.encoding = 'utf-8'
+        # 发送GET请求获取内容
+        response.raise_for_status()  # 检查请求是否成功
+
+        # 确保使用正确的编码（通常为UTF-8）
+        response.encoding = 'utf-8'
+        content = response.text
+
+        # 按行分割并处理
+        processed_lines = []
+        for line in content.strip().split('\n'):
+            line = line.strip()
+            if not line:  # 跳过空行
+                continue
+
+            # 在#号前添加:443
+            if '#' in line:
+                # 将IP和后面的部分分开
+                ip_part, country_part = line.split('#', 1)
+                new_line = f"{ip_part}:80#{country_part}"
+                processed_lines.append(new_line)
+            else:
+                # 如果没有#号（理论上不应该发生），保持原样
+                new_line = f"{ip_part}:80#"
+                processed_lines.append(new_line)
+
+        #return processed_lines
+        return '\n'.join(processed_lines)
+
+    except requests.exceptions.RequestException as e:
+        print(f"网络请求错误: {e}")
+        return ''
+    except Exception as e:
+        print(f"处理数据时出错: {e}")
+        return ''
 
 if __name__ == "__main__":
     fetch_and_parse_api()
