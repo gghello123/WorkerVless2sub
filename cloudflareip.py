@@ -307,9 +307,9 @@ def parse_ips_from_json(url = "https://raw.githubusercontent.com/NiREvil/vless/r
             # 格式化：ip:80#line_speed（速度取整数）
             # 如果是 IPv6，用 [ip] 包裹
             if ip_type == "IPv6":
-                formatted = f"[{ip}]:80#{line_display}_{int(speed)}"
+                formatted = f"[{ip}]:80#{line_display}v6_{int(speed)}"
             else:
-                formatted = f"{ip}:443#{line_display}_{int(speed)}"
+                formatted = f"{ip}:443#{line_display}v4_{int(speed)}"
 
             result_lines.append(formatted)
 
