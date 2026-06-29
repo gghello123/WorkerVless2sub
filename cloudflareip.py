@@ -68,7 +68,7 @@ def fetch_and_parse_api():
         parsed_data = ":443#vps\n".join(parsed_old_data)
         parsed_data = parsed_data + ":8443#vps\n"
         
-        result= '\n'.join(fetch_and_process_proxies("8443"))
+        result= 'ipdb\n'.join(fetch_and_process_proxies("8443"))
         parsed_data = parsed_data + result
         
         #parsed_data = parsed_data + "\n"
