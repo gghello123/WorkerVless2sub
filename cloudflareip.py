@@ -68,8 +68,8 @@ def fetch_and_parse_api():
         parsed_data = ":443#vps\n".join(parsed_old_data)
         parsed_data = parsed_data + ":8443#vps\n"
         
-        result= 'ipdb\n'.join(fetch_and_process_proxies("8443"))
-        parsed_data = parsed_data + result
+        #result= 'ipdb\n'.join(fetch_and_process_proxies("8443"))
+        #parsed_data = parsed_data + result
         
         #parsed_data = parsed_data + "\n"
         #parsed_data = parsed_data + extract_fast_ips_robust()
