@@ -1,204 +1,164 @@
-172.64.144.170:443#vps
-104.18.46.111:443#vps
-104.18.33.198:443#vps
-108.162.198.127:443#vps
-172.64.156.112:443#vps
-104.17.122.107:443#vps
-172.64.158.29:443#vps
-104.17.112.132:443#vps
-104.16.240.59:443#vps
-104.16.240.172:443#vps
-104.18.45.223:443#vps
-104.18.81.111:443#vps
-104.18.33.225:443#vps
-104.17.112.132:443#vps
-104.17.172.124:443#vps
+172.64.144.177:443#vps
+104.18.40.189:443#vps
+104.18.45.68:443#vps
+172.64.156.99:443#vps
+172.64.158.18:443#vps
 104.18.40.163:443#vps
-172.64.159.79:443#vps
+104.19.39.89:443#vps
+108.162.198.84:443#vps
+172.64.144.170:443#vps
+172.64.154.204:443#vps
+104.17.216.159:443#vps
+104.17.58.157:443#vps
+198.41.209.68:443#vps
+104.18.33.225:443#vps
+172.64.144.222:443#vps
+172.64.145.42:443#vps
+172.64.144.170:443#vps
 104.18.42.221:443#vps
-104.18.46.37:443#vps
-172.64.159.26:443#vps
-108.162.198.186:443#vps
-162.159.38.230:443#vps
-162.159.39.1:443#vps
-162.159.44.243:443#vps
-162.159.45.57:443#vps
-172.64.49.173:443#vps
-172.64.52.83:443#vps
-172.64.53.200:443#vps
-172.64.148.137:443#vps
-172.64.229.180:8443#vps
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<!-- 页面元信息 -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=1.0, user-scalable=no" />
-<title>IPDB API</title>
-<link rel="icon" type="image/png" href="https://img.icons8.com/pulsar-color/48/ip-address.png">
-<!-- 页面样式 -->
-<style>
-hr {
-border: 0;
-height: 1px;
-background: linear-gradient(to right, transparent, :8443#ipdb_ccc, transparent);
-margin: 20px 0;
-}
-summary {
-user-select: none;
-cursor: pointer;
-}
-body {
-font-family: Arial, sans-serif;
-background-color: :8443#ipdb_F5F5F5;
-padding: 0 3%;
-/* 添加左右 padding */
-}
-a {
-color: :8443#ipdb_838eb4;
-text-decoration: none;
-}
-code {
-background-color: :8443#ipdb_eee;
-padding: 2px 5px;
-border-radius: 3px;
-}
-p {
-margin-bottom: 15px;
-}
-li {
-margin-bottom: 5px;
-}
-@media (prefers-color-scheme: dark) {
-body {
-background-color: :8443#ipdb_333;
-color: :8443#ipdb_f0f0f0;
-}
-code {
-background-color: :8443#ipdb_444;
-padding: 2px 5px;
-border-radius: 3px;
-}
-}
-</style>
-<script>
-var _hmt = _hmt || [];
-(function() {
-var hm = document.createElement("script");
-hm.src = "https://hm.baidu.com/hm.js?7dd7ed0a5e25f4e945738da3329b1c6c";
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</head>
-<body>
-<!-- 页面内容 -->
-<h1 style="font-size: 30px;">IPDB API of <span style="text-decoration: underline; cursor: pointer;"
-onclick="window.open('https://github.com/ymyuuu', '_blank')">Mingyu</span></h1>
-<details>
-<summary>Please click to view the important tips before use.</summary>
-<h2>Disclaimer:</h2>
-<hr>
-<ol>
-<li>IPDB仅面向非大陆地区用户，大陆地区用户在使用时需自行承担因法律法规限制可能带来的风险。</li>
-<li>IPDB的数据源包括但不限于互联网、开放数据库等公开网络资源。</li>
-<li>IPDB致力于确保数据时效性，但不对数据的准确性、完整性或可靠性做出任何承诺。</li>
-<li>用户在使用IPDB提供的信息时应自行判断其适用性，IPDB不对用户的判断负责。</li>
-<li>IPDB数据更新周期因数据源更新频率而有所不同，使用者应了解数据的最新情况。</li>
-<li>IPDB不对因使用其信息导致的直接或间接损失负责，包括业务损失和数据丢失等。</li>
-<li>IPDB不能保证其服务始终可用，可能会进行定期维护、升级或其他必要的操作。</li>
-<li>IPDB不对用户因使用服务而违反法规法律的行为负责，用户应遵守当地法规。</li>
-<li>IPDB不对用户在使用服务时受到的网络攻击、滥用行为负责，用户应保护账户信息。</li>
-<li>IPDB不对用户在其服务器上存储的数据的安全性负责，建议用户定期备份重要数据。</li>
-</ol>
-<p>免责声明的任何更改将通过本页面发布，用户应定期查看以获取最新信息。</p>
-<p>免责声明的效力范围将覆盖使用IPDB服务的所有用户，包括匿名用户。</p>
-<p>IPDB可能根据业务发展和用户需求调整服务内容，如有重大变更将提前通知用户。</p>
-<p>IPDB不对用户在使用服务过程中因自身原因导致的数据丢失、遗漏或其他损失负责。</p>
-<p>IPDB不对用户在使用服务过程中产生的第三方费用（如网络费用、通信费用等）负责。</p>
-<p>请勿将IPDB服务用于违法、滥用、攻击等恶意行为，违者IPDB有权中止或终止使用权限。</p>
-<p>用户在使用IPDB服务时，应保持合理谨慎，自行承担风险，对于因使用本服务而导致的一切后果负责。</p>
-<p>如果您对本免责声明有任何疑问，请<a href="/cdn-cgi/l/email-protection:8443#ipdb_abc2c5cdc4eb9b989b9a9b9a85d3d2d1">邮件</a>联系。将尽全力为您提供必要的协助和解释。</p>
-<p><strong>在使用本服务前务必审慎阅读并理解本免责声明的全部内容，使用本服务将被视为对本免责声明的接受和遵守。</strong></p>
-</details>
-<h2>Help Documents:</h2>
-<hr>
-<p><strong>type：</strong>获取的 IP 地址类型，支持单个或多个类型，用分号分隔。示例：type=cfv4;cfv6;proxy</p>
-<p><strong>country：</strong>是否显示 IP 地区。设置为 true 表示显示。示例：country=true</p>
-<p><strong>down：</strong>是否下载获取的内容。设置为 true 表示下载。示例：down=true</p>
-<p>寻找独一无二的<strong>优选域名</strong>？追求一劳永逸的选择？<a href="https://t.me/HeroCore" target="_blank">@HubCore</a></p>
-<p><strong>支持的类型：</strong></p>
-<ul>
-<li><strong>cfv4：</strong>Cloudflare IPv4 地址列表</li>
-<li><strong>cfv6：</strong>Cloudflare IPv6 地址列表</li>
-<li><strong>proxy：</strong>反代 IP 地址列表(Ten min)</li>
-<li><strong>bestcf：</strong>优选官方 IP 地址列表(Half hour)</li>
-<li><strong>bestproxy：</strong>优选反代 IP 地址列表(Half hour)</li>
-</ul>
-<h3>Demo:</h3>
-<ul>
-<li><code><a href="https://{dynamicDomain}/?type=bestproxy&country=true"
-target="_blank">{dynamicDomain}/?type=bestproxy&country=true</a></code><br>获取优选反代 IP 地址列表并查看 IP
-地区</li>
-<li><code><a href="https://{dynamicDomain}/?type=cfv4;proxy"
-target="_blank">{dynamicDomain}/?type=cfv4;proxy</a></code><br>获取 Cloudflare IPv4
-地址列表和反代 IP
-地址列表
-</li>
-<li><code><a href="https://{dynamicDomain}/?type=bestproxy&down=true"
-target="_blank">{dynamicDomain}/?type=bestproxy&down=true</a></code><br>下载优选反代 IP 地址列表
-</li>
-<li><code><a href="https://{dynamicDomain}/?type=cfv4;cfv6&down=true"
-target="_blank">{dynamicDomain}/?type=cfv4;cfv6&down=true</a></code><br>下载 Cloudflare
-IPv4
-地址列表和Cloudflare IPv6 地址列表
-</li>
-</ul>
-<p style="text-align: center;">
-&copy; 2023-<span id="year"></span> <span>Mingyu</span> |
-<a href="https://github.com/ymyuuu" target="_blank">GitHub</a> |
-<a href="https://t.me/HeroCore" target="_blank">Telegram</a> |
-<a href="https://api.030101.xyz">API</a>
-</p>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-<script>
-// 获取包含占位符的元素，并替换内容
-document.body.innerHTML = document.body.innerHTML.replace(/{dynamicDomain}/g, window.location.hostname);
-</script>
-</body>
-</html>
-198.41.208.107:443#移动v4_290
-198.41.209.154:443#移动v4_275
+104.18.43.202:443#vps
+104.18.46.111:443#vps
+108.162.198.245:443#vps
+162.159.26.211:443#vps
+162.159.38.96:443#vps
+162.159.39.5:443#vps
+162.159.44.153:443#vps
+162.159.45.65:443#vps
+172.64.52.159:443#vps
+172.64.53.187:443#vps
+172.64.150.115:443#vps
+172.64.229.35:8443#vps
+8.212.65.162:8443#ipdb_HK
+8.212.14.90:8443#ipdb_HK
+47.57.245.232:8443#ipdb_HK
+8.217.168.149:8443#ipdb_HK
+47.242.218.87:8443#ipdb_HK
+8.212.12.98:8443#ipdb_HK
+8.222.219.140:8443#ipdb_SG
+8.222.255.80:8443#ipdb_SG
+8.219.97.248:8443#ipdb_SG
+8.222.223.112:8443#ipdb_SG
+132.226.16.97:8443#ipdb_KR
+8.219.63.79:8443#ipdb_SG
+8.222.169.19:8443#ipdb_SG
+152.70.240.162:8443#ipdb_KR
+8.222.139.227:8443#ipdb_SG
+8.222.165.104:8443#ipdb_SG
+8.222.213.251:8443#ipdb_SG
+47.74.155.26:8443#ipdb_SG
+158.180.75.201:8443#ipdb_KR
+146.56.96.206:8443#ipdb_KR
+146.56.110.3:8443#ipdb_KR
+8.219.254.1:8443#ipdb_SG
+8.219.243.132:8443#ipdb_SG
+8.219.236.218:8443#ipdb_SG
+8.220.134.136:8443#ipdb_PH
+8.219.245.214:8443#ipdb_SG
+8.219.255.49:8443#ipdb_SG
+8.219.228.81:8443#ipdb_SG
+152.70.234.185:8443#ipdb_KR
+132.226.234.102:8443#ipdb_KR
+129.154.202.229:8443#ipdb_KR
+193.123.254.142:8443#ipdb_KR
+152.70.253.44:8443#ipdb_KR
+155.248.248.205:8443#ipdb_IN
+141.148.203.6:8443#ipdb_IN
+152.67.190.105:8443#ipdb_IN
+144.24.140.37:8443#ipdb_IN
+132.145.94.80:8443#ipdb_KR
+130.162.132.107:8443#ipdb_KR
+132.226.22.204:8443#ipdb_KR
+131.186.27.112:8443#ipdb_KR
+192.9.180.162:8443#ipdb_AU
+141.144.198.121:8443#ipdb_NL
+141.144.198.93:8443#ipdb_NL
+193.123.35.178:8443#ipdb_NL
+150.230.218.53:8443#ipdb_JP
+155.248.178.95:8443#ipdb_JP
+155.248.182.161:8443#ipdb_JP
+150.230.204.132:8443#ipdb_JP
+155.248.170.249:8443#ipdb_JP
+193.123.166.233:8443#ipdb_JP
+155.248.169.118:8443#ipdb_JP
+141.147.160.166:8443#ipdb_JP
+150.230.198.167:8443#ipdb_JP
+47.251.95.178:8443#ipdb_US
+150.230.63.93:8443#ipdb_JP
+141.147.147.28:8443#ipdb_JP
+140.238.31.168:8443#ipdb_KR
+47.254.86.133:8443#ipdb_US
+129.153.203.62:8443#ipdb_US
+150.230.121.114:8443#ipdb_GB
+141.144.197.136:8443#ipdb_NL
+141.144.196.32:8443#ipdb_NL
+129.150.53.218:8443#ipdb_SG
+144.21.40.27:8443#ipdb_NL
+138.2.81.71:8443#ipdb_SG
+129.151.198.3:8443#ipdb_SE
+193.122.58.158:8443#ipdb_DE
+141.148.230.89:8443#ipdb_NL
+143.47.185.27:8443#ipdb_NL
+130.162.165.64:8443#ipdb_GB
+141.148.230.120:8443#ipdb_NL
+143.47.189.30:8443#ipdb_NL
+143.47.183.52:8443#ipdb_NL
+152.67.142.42:8443#ipdb_GB
+144.24.174.149:8443#ipdb_DE
+141.145.205.115:8443#ipdb_FR
+150.230.123.106:8443#ipdb_GB
+130.61.124.127:8443#ipdb_DE
+130.162.163.93:8443#ipdb_GB
+150.230.118.203:8443#ipdb_GB
+150.230.146.170:8443#ipdb_DE
+152.67.140.249:8443#ipdb_GB
+141.148.235.197:8443#ipdb_NL
+143.47.235.216:8443#ipdb_GB
+150.136.87.192:8443#ipdb_US
+152.70.59.138:8443#ipdb_NL
+152.70.51.3:8443#ipdb_NL
+150.230.22.224:8443#ipdb_NL
+152.67.151.176:8443#ipdb_GB
+130.162.174.117:8443#ipdb_GB
+144.21.42.2:8443#ipdb_NL
+129.158.198.241:8443#ipdb_US
+141.147.47.32:8443#ipdb_DE
+141.147.71.187:8443#ipdb_GB
+130.162.209.188:8443#ipdb_DE
+141.147.71.121:8443#ipdb_GB
+141.147.64.114:8443#ipdb_GB
+141.148.245.210:8443#ipdb_NL
+143.47.247.120:8443#ipdb_GB
+132.145.245.100:8443#ipdb_DE
+158.180.231.216:8443#ipdb_IT
+144.22.252.124:8443#ipdb_BR
+132.226.163.224:8443#ipdb_BR
+47.253.171.149:8443#ipdb_US
+198.41.209.50:443#移动v4_285
 198.41.209.213:443#移动v4_270
-198.41.208.76:443#移动v4_260
 198.41.209.228:443#移动v4_260
-162.159.46.78:443#电信v4_295
-198.41.222.242:443#电信v4_295
-198.41.223.162:443#电信v4_285
-104.19.14.153:443#电信v4_270
-198.41.211.163:443#电信v4_250
-198.41.208.107:443#联通v4_290
-198.41.209.154:443#联通v4_275
+104.17.27.69:443#电信v4_330
+104.19.147.37:443#电信v4_285
+104.17.55.136:443#电信v4_255
+104.18.250.73:443#电信v4_250
+141.101.114.49:443#电信v4_215
+198.41.209.50:443#联通v4_285
 198.41.209.213:443#联通v4_270
-198.41.208.76:443#联通v4_260
 198.41.209.228:443#联通v4_260
-[2606:4700:91b2:990b:8936:c4b2:e642:617e]:80#移动v6_623
-[2606:4700:10f:dee:89a8:fab:5a78:41a6]:80#移动v6_528
-[2606:4700:9a93:f489:d235:3bcd:d9b8:4609]:80#移动v6_352
-[2606:4700:9763:e25e:fb27:2693:4109:1360]:80#移动v6_321
-[2606:4700:9a93:bc11:c645:9fec:ee97:f29]:80#移动v6_309
-[2606:4700:91b2:990b:8936:c4b2:e642:617e]:80#电信v6_623
-[2606:4700:10f:dee:89a8:fab:5a78:41a6]:80#电信v6_528
-[2606:4700:9a93:f489:d235:3bcd:d9b8:4609]:80#电信v6_352
-[2606:4700:9763:e25e:fb27:2693:4109:1360]:80#电信v6_321
-[2606:4700:9a93:bc11:c645:9fec:ee97:f29]:80#电信v6_309
-[2606:4700:91b2:990b:8936:c4b2:e642:617e]:80#联通v6_623
-[2606:4700:10f:dee:89a8:fab:5a78:41a6]:80#联通v6_528
-[2606:4700:9a93:f489:d235:3bcd:d9b8:4609]:80#联通v6_352
-[2606:4700:9763:e25e:fb27:2693:4109:1360]:80#联通v6_321
-[2606:4700:9a93:bc11:c645:9fec:ee97:f29]:80#联通v6_309
+[2606:4700:9c66:9bff:7c96:6dd2:6799:caca]:80#移动v6_584
+[2606:4700:90c1:438e:ab37:b45:78ee:d698]:80#移动v6_561
+[2606:4700:0:693c:33bd:8cd3:d2e1:2971]:80#移动v6_491
+[2606:4700:91bb:b8e4:e4f:489:98c8:1f39]:80#移动v6_313
+[2606:4700:9648:e7b9:a62d:d068:83f8:4fc6]:80#移动v6_310
+[2606:4700:9c66:9bff:7c96:6dd2:6799:caca]:80#电信v6_584
+[2606:4700:90c1:438e:ab37:b45:78ee:d698]:80#电信v6_561
+[2606:4700:0:693c:33bd:8cd3:d2e1:2971]:80#电信v6_491
+[2606:4700:91bb:b8e4:e4f:489:98c8:1f39]:80#电信v6_313
+[2606:4700:9648:e7b9:a62d:d068:83f8:4fc6]:80#电信v6_310
+[2606:4700:9c66:9bff:7c96:6dd2:6799:caca]:80#联通v6_584
+[2606:4700:90c1:438e:ab37:b45:78ee:d698]:80#联通v6_561
+[2606:4700:0:693c:33bd:8cd3:d2e1:2971]:80#联通v6_491
+[2606:4700:91bb:b8e4:e4f:489:98c8:1f39]:80#联通v6_313
+[2606:4700:9648:e7b9:a62d:d068:83f8:4fc6]:80#联通v6_310
 dashboard.katabump.com:80#
 www.w3.org:80#
 serviceshub.samsclub.com:80#
